@@ -1,24 +1,10 @@
-let number = Math.floor(Math.random() * 10) + 1;
+const phrase = "Vous etes vous trompé ?";
+const frequencies = {};
+const words = phrase.split(" ").map((el) => el.toLowerCase());
 
-console.log(number)
-
-const isRight = () =>{
-    window.alert('gg wp')
-}
-const guess = ()=>{
-for (let i = 0; i < 3; i++) {
-    const essai = Number(prompt('Devinez le chiffre de 1 à 10'))
-
-    if (i === 2) window.alert('you lose')
-    else if (essai < number) window.alert('need upper number')
-    else if (essai > number) window.alert('need lower number')
-    else if (essai === number) {
-        isRight()
-        break
-    }
-
-}
+for (let word of words) {
+  if (frequencies[word]) frequencies[word]++;
+  else frequencies[word] = 1;
 }
 
-
-guess()
+console.log(frequencies);

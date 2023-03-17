@@ -1,2 +1,2 @@
 Chapitre en cours :
-    7: les fonctions
+9: les classes
