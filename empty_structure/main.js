@@ -1,10 +1,29 @@
-const phrase = "Vous etes vous trompé ?";
-const frequencies = {};
-const words = phrase.split(" ").map((el) => el.toLowerCase());
+class Student {
+    constructor(firstname, lastname) {
+        this._firstname = firstname
+        this._lastname = lastname
+    }
+    set _firstname(v) {
+        this.firstname = v
+    }
 
-for (let word of words) {
-  if (frequencies[word]) frequencies[word]++;
-  else frequencies[word] = 1;
+    get _firstname() {
+        return `${this.firstname()}`
+    }
+    set _lastname(v) {
+        this.lastname = v
+    }
+
+    get _lastname() {
+        return `${this.lastname()}`
+    }
+
+
+
+
 }
 
-console.log(frequencies);
+const boby = new Student('bob', 'dylan')
+
+boby._firstname = "test"
+console.log(boby)
