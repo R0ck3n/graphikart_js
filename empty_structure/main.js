@@ -25,5 +25,3 @@ class Student {
 
 const boby = new Student('bob', 'dylan')
 
-boby._firstname = "test"
-console.log(boby)
