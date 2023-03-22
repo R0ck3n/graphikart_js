@@ -1,11 +1,15 @@
-const string = "Lorem ipsum dolor sit amet.";
-let arrayString = string.toLowerCase().split("");
-const filters = ["l", " ", "."];
+function decompte(duration) {
+  console.log(duration);
+  const countdown = setInterval(() => {
+    duration--;
+    console.log(duration);
+    if (duration === 0) {
+      clearInterval(countdown);
+      setTimeout(() => {
+        console.log("BADABOOM !");
+      }, 300);
+    }
+  }, 1000);
+}
 
-filters.forEach((exclude) => {
-  arrayString = arrayString.filter((el) => {
-    return el !== exclude;
-  });
-});
-
-console.log(arrayString);
+decompte(3);

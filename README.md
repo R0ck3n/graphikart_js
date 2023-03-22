@@ -1,2 +1,2 @@
 Chapitre en cours :
-13 : Le sucre syntaxique
+16 : Apprendre le JavaScript : Appel HTTP avec fetch()
