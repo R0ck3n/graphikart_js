@@ -15,3 +15,4 @@ const fetchage = async () => {
 };
 
 fetchage().then((users) => console.log(users));
+/***TEST ******/
