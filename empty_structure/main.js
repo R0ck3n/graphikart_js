@@ -1,18 +1,34 @@
-const fetchage = async () => {
-  const r = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=10",
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ title: "Mon premier article" }),
-    }
-  );
+const app = document.querySelector("#app");
+app.innerHTML = "Chargement...";
 
-  return r.ok ? r.json() : new Error("Fail");
+const articles = async () => {
+  const r = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!r.ok) {
+    app.innerHTML = "Impossible de Charger la page !";
+    return;
+  }
+
+  app.innerHTML = "";
+  return r.json();
 };
 
-fetchage().then((users) => console.log(users));
-/***TEST ******/
+articles().then((data) =>
+  data.forEach((element) => {
+    const newArticle = document.createElement("article");
+    const newH2 = document.createElement("h2");
+    const newp = document.createElement("p");
+
+    newH2.append(element.title);
+    newp.append(element.body);
+
+    newArticle.append(newH2, newp);
+    app.append(newArticle);
+    console.log(element);
+  })
+);
